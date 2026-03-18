@@ -39,9 +39,9 @@ const { heading, subtitles = [], cards } = Astro.props;
       class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
       style="background-color: var(--color-navy); color: #fff;"
     >
-      <span class="text-lg font-bold tracking-tight leading-tight">{cards.left.title}</span>
+      <span class="text-4xl font-bold tracking-tight leading-tight">{cards.left.title}</span>
       {cards.left.subtitle && (
-        <span class="text-xs opacity-70 tracking-wide">{cards.left.subtitle}</span>
+        <span class="text-md opacity-70 tracking-wide">{cards.left.subtitle}</span>
       )}
       <!-- inner content goes here later -->
     </article>
@@ -52,9 +52,9 @@ const { heading, subtitles = [], cards } = Astro.props;
       <!-- Top Left -->
       <article
         class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
-        style="background-color: var(--color-sky); color: var(--color-navy);"
+        style="background-color: var(--color-sky); color: black;"
       >
-        <span class="text-lg font-bold tracking-tight leading-tight">{cards.topLeft.title}</span>
+        <span class="text-4xl font-bold tracking-tight leading-tight">{cards.topLeft.title}</span>
         {cards.topLeft.subtitle && (
           <span class="text-xs opacity-70 tracking-wide">{cards.topLeft.subtitle}</span>
         )}
@@ -63,9 +63,9 @@ const { heading, subtitles = [], cards } = Astro.props;
       <!-- Top Right -->
       <article
         class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
-        style="background-color: var(--color-yellow); color: var(--color-navy);"
+        style="background-color: var(--color-yellow); color: black;"
       >
-        <span class="text-lg font-bold tracking-tight leading-tight">{cards.topRight.title}</span>
+        <span class="text-4xl font-bold tracking-tight leading-tight">{cards.topRight.title}</span>
         {cards.topRight.subtitle && (
           <span class="text-xs opacity-70 tracking-wide">{cards.topRight.subtitle}</span>
         )}
@@ -76,7 +76,7 @@ const { heading, subtitles = [], cards } = Astro.props;
         class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
         style="background-color: var(--color-blue); color: #fff;"
       >
-        <span class="text-lg font-bold tracking-tight leading-tight">{cards.bottomLeft.title}</span>
+        <span class="text-4xl font-bold tracking-tight leading-tight">{cards.bottomLeft.title}</span>
         {cards.bottomLeft.subtitle && (
           <span class="text-xs opacity-70 tracking-wide">{cards.bottomLeft.subtitle}</span>
         )}
@@ -87,7 +87,7 @@ const { heading, subtitles = [], cards } = Astro.props;
         class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
         style="background-color: var(--color-orange); color: #fff;"
       >
-        <span class="text-lg font-bold tracking-tight leading-tight">{cards.bottomRight.title}</span>
+        <span class="text-4xl font-bold tracking-tight leading-tight">{cards.bottomRight.title}</span>
         {cards.bottomRight.subtitle && (
           <span class="text-xs opacity-70 tracking-wide">{cards.bottomRight.subtitle}</span>
         )}
