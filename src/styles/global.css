@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+/* ─── Color Palette ─────────────────────────────────────────── */
+:root {
+  /* Primary */
+  --color-navy:       #094074;
+  --color-blue:       #3C6997;
+  --color-sky:        #5ADBFF;
+
+  /* Accent */
+  --color-yellow:     #FFDD4A;
+  --color-orange:     #FE9000;
+
+  /* Semantic aliases */
+  --color-primary:    var(--color-navy);
+  --color-secondary:  var(--color-blue);
+  --color-accent:     var(--color-sky);
+  --color-highlight:  var(--color-yellow);
+  --color-cta:        var(--color-orange);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
 html,
 body {
   margin: 0;
