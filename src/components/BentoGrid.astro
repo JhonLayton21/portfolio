@@ -3,7 +3,6 @@ interface CardProps {
   title: string;
   subtitle?: string;
 }
-
 interface Props {
   heading: string;
   subtitles?: string[];
@@ -15,15 +14,14 @@ interface Props {
     bottomRight: CardProps;
   };
 }
-
 const { heading, subtitles = [], cards } = Astro.props;
 ---
 
-<section class="p-8 bg-[#f5f5f0] font-mono flex flex-col gap-6">
+<section class="h-screen overflow-hidden p-8 bg-[#f5f5f0] font-mono flex flex-col gap-6">
 
   <!-- ── Header ── -->
-  <header class="flex flex-col gap-2 pl-[calc(38%+1.5rem)]">
-    <h1 class="text-[clamp(3rem,8vw,6rem)] font-black uppercase tracking-tighter leading-none text-black">
+  <header class="flex-none flex flex-col gap-2 pl-[calc(38%+1.5rem)]">
+    <h1 class="text-[clamp(2rem,5vw,5rem)] font-black uppercase tracking-tighter leading-none text-black">
       {heading}
     </h1>
     <div class="flex flex-wrap gap-8">
@@ -34,11 +32,11 @@ const { heading, subtitles = [], cards } = Astro.props;
   </header>
 
   <!-- ── Grid ── -->
-  <div class="grid gap-4" style="grid-template-columns: 38% 1fr;">
+  <div class="flex-1 min-h-0 grid gap-4" style="grid-template-columns: 38% 1fr;">
 
     <!-- Left card (tall) -->
     <article
-      class="rounded-2xl p-6 flex flex-col gap-2 min-h-130 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+      class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
       style="background-color: var(--color-navy); color: #fff;"
     >
       <span class="text-lg font-bold tracking-tight leading-tight">{cards.left.title}</span>
@@ -49,11 +47,11 @@ const { heading, subtitles = [], cards } = Astro.props;
     </article>
 
     <!-- Right 2×2 -->
-    <div class="grid grid-cols-2 gap-4" style="grid-template-rows: 1.6fr 1fr;">
+    <div class="grid grid-cols-2 gap-4 min-h-0" style="grid-template-rows: 1.6fr 1fr;">
 
       <!-- Top Left -->
       <article
-        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
         style="background-color: var(--color-sky); color: var(--color-navy);"
       >
         <span class="text-lg font-bold tracking-tight leading-tight">{cards.topLeft.title}</span>
@@ -64,7 +62,7 @@ const { heading, subtitles = [], cards } = Astro.props;
 
       <!-- Top Right -->
       <article
-        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
         style="background-color: var(--color-yellow); color: var(--color-navy);"
       >
         <span class="text-lg font-bold tracking-tight leading-tight">{cards.topRight.title}</span>
@@ -75,7 +73,7 @@ const { heading, subtitles = [], cards } = Astro.props;
 
       <!-- Bottom Left -->
       <article
-        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
         style="background-color: var(--color-blue); color: #fff;"
       >
         <span class="text-lg font-bold tracking-tight leading-tight">{cards.bottomLeft.title}</span>
@@ -86,7 +84,7 @@ const { heading, subtitles = [], cards } = Astro.props;
 
       <!-- Bottom Right -->
       <article
-        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
         style="background-color: var(--color-orange); color: #fff;"
       >
         <span class="text-lg font-bold tracking-tight leading-tight">{cards.bottomRight.title}</span>
@@ -98,7 +96,6 @@ const { heading, subtitles = [], cards } = Astro.props;
     </div>
   </div>
 
-  <!-- ── Responsive (mobile) ── -->
   <style>
     @media (max-width: 768px) {
       .grid[style*="grid-template-columns"] {
