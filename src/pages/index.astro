@@ -1,7 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import Layout from "../layouts/Layout.astro";
+import BentoGrid from "../components/BentoGrid.astro";
 ---
 
 <Layout>
+  <BentoGrid
+    heading="PORTFOLIO"
+    subtitles={["JhonLayton21", "jhon-layton", "(+57) 3337369902"]}
+    cards={{
+      left: { title: "Jhon Brandon Layton", subtitle: "Fullstack Developer" },
+      topLeft: { title: "cv creator" },
+      topRight: { title: "Patternation" },
+      bottomLeft: { title: "Background Clash" },
+      bottomRight: { title: "Proofimaster" },
+    }}
+  />
 </Layout>
