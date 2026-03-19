@@ -5,7 +5,7 @@ interface CardProps {
 }
 interface Props {
   heading: string;
-  subtitles?: string[];
+  subtitles?: { label: string; url: string }[];
   cards: {
     left: CardProps;
     topLeft: CardProps;
@@ -51,12 +51,13 @@ const { heading, subtitles = [], cards } = Astro.props;
           {heading}
         </h1>
         <div class="flex justify-between">
-          {
-            subtitles.map((s) => (
-              <span class="text-sm text-neutral-500 tracking-wide">{s}</span>
-            ))
-          }
-        </div>
+  {subtitles.map((s) => (
+      <a href={s.url}
+      class="text-lg text-neutral-500 tracking-wide hover:text-black transition-colors duration-200">
+      {s.label}
+    </a>
+  ))}
+</div>
       </header>
       <!-- 2×2 cards -->
       <div
