@@ -17,94 +17,124 @@ interface Props {
 const { heading, subtitles = [], cards } = Astro.props;
 ---
 
-<section class="h-screen overflow-hidden p-8 bg-[#f5f5f0] font-mono flex flex-col gap-6">
-
-  <!-- ── Header ── -->
-  <header class="flex-none flex flex-col gap-2 pl-[calc(38%+1.5rem)]">
-    <h1 class="text-[clamp(2rem,5vw,5rem)] font-black uppercase tracking-tighter leading-none text-black">
-      {heading}
-    </h1>
-    <div class="flex flex-wrap gap-8">
-      {subtitles.map((s) => (
-        <span class="text-sm text-neutral-500 tracking-wide">{s}</span>
-      ))}
-    </div>
-  </header>
-
+<section
+  class="h-screen overflow-hidden p-8 bg-[#f5f5f0] font-mono flex flex-col gap-4"
+>
   <!-- ── Grid ── -->
-  <div class="flex-1 min-h-0 grid gap-4" style="grid-template-columns: 38% 1fr;">
-
+  <div
+    class="flex-1 min-h-0 grid gap-4"
+    style="grid-template-columns: 38% 1fr; grid-template-rows: 1fr;"
+  >
     <!-- Left card (tall) -->
     <article
-      class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
+      class="h-full rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
       style="background-color: var(--color-navy); color: #fff;"
     >
-      <span class="text-4xl font-bold tracking-tight leading-tight">{cards.left.title}</span>
-      {cards.left.subtitle && (
-        <span class="text-md opacity-70 tracking-wide">{cards.left.subtitle}</span>
-      )}
-      <!-- inner content goes here later -->
+      <span class="text-4xl font-bold tracking-tight leading-tight"
+        >{cards.left.title}</span
+      >
+      {
+        cards.left.subtitle && (
+          <span class="text-md opacity-70 tracking-wide">
+            {cards.left.subtitle}
+          </span>
+        )
+      }
     </article>
-
-    <!-- Right 2×2 -->
-    <div class="grid grid-cols-2 gap-4 min-h-0" style="grid-template-rows: 1.6fr 1fr;">
-
-      <!-- Top Left -->
-      <article
-        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
-        style="background-color: var(--color-sky); color: black;"
+    <!-- Right side: heading + 2×2 grid -->
+    <div class="flex flex-col gap-4 min-h-0">
+      <!-- Header (ahora dentro del lado derecho) -->
+      <header class="flex-none flex flex-col gap-1">
+        <h1
+          class="text-[clamp(3rem,7vw,7rem)] font-black uppercase tracking-tighter leading-none text-black text-center"
+        >
+          {heading}
+        </h1>
+        <div class="flex justify-between">
+          {
+            subtitles.map((s) => (
+              <span class="text-sm text-neutral-500 tracking-wide">{s}</span>
+            ))
+          }
+        </div>
+      </header>
+      <!-- 2×2 cards -->
+      <div
+        class="flex-1 grid grid-cols-2 gap-4 min-h-0"
+        style="grid-template-rows: 1.6fr 1fr;"
       >
-        <span class="text-4xl font-bold tracking-tight leading-tight">{cards.topLeft.title}</span>
-        {cards.topLeft.subtitle && (
-          <span class="text-xs opacity-70 tracking-wide">{cards.topLeft.subtitle}</span>
-        )}
-      </article>
-
-      <!-- Top Right -->
-      <article
-        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
-        style="background-color: var(--color-yellow); color: black;"
-      >
-        <span class="text-4xl font-bold tracking-tight leading-tight">{cards.topRight.title}</span>
-        {cards.topRight.subtitle && (
-          <span class="text-xs opacity-70 tracking-wide">{cards.topRight.subtitle}</span>
-        )}
-      </article>
-
-      <!-- Bottom Left -->
-      <article
-        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
-        style="background-color: var(--color-blue); color: #fff;"
-      >
-        <span class="text-4xl font-bold tracking-tight leading-tight">{cards.bottomLeft.title}</span>
-        {cards.bottomLeft.subtitle && (
-          <span class="text-xs opacity-70 tracking-wide">{cards.bottomLeft.subtitle}</span>
-        )}
-      </article>
-
-      <!-- Bottom Right -->
-      <article
-        class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
-        style="background-color: var(--color-orange); color: #fff;"
-      >
-        <span class="text-4xl font-bold tracking-tight leading-tight">{cards.bottomRight.title}</span>
-        {cards.bottomRight.subtitle && (
-          <span class="text-xs opacity-70 tracking-wide">{cards.bottomRight.subtitle}</span>
-        )}
-      </article>
-
+        <!-- Top Left -->
+        <article
+          class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
+          style="background-color: var(--color-sky); color: black;"
+        >
+          <span class="text-4xl font-bold tracking-tight leading-tight"
+            >{cards.topLeft.title}</span
+          >
+          {
+            cards.topLeft.subtitle && (
+              <span class="text-xs opacity-70 tracking-wide">
+                {cards.topLeft.subtitle}
+              </span>
+            )
+          }
+        </article>
+        <!-- Top Right -->
+        <article
+          class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
+          style="background-color: var(--color-yellow); color: black;"
+        >
+          <span class="text-4xl font-bold tracking-tight leading-tight"
+            >{cards.topRight.title}</span
+          >
+          {
+            cards.topRight.subtitle && (
+              <span class="text-xs opacity-70 tracking-wide">
+                {cards.topRight.subtitle}
+              </span>
+            )
+          }
+        </article>
+        <!-- Bottom Left -->
+        <article
+          class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
+          style="background-color: var(--color-blue); color: #fff;"
+        >
+          <span class="text-4xl font-bold tracking-tight leading-tight"
+            >{cards.bottomLeft.title}</span
+          >
+          {
+            cards.bottomLeft.subtitle && (
+              <span class="text-xs opacity-70 tracking-wide">
+                {cards.bottomLeft.subtitle}
+              </span>
+            )
+          }
+        </article>
+        <!-- Bottom Right -->
+        <article
+          class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
+          style="background-color: var(--color-orange); color: #fff;"
+        >
+          <span class="text-4xl font-bold tracking-tight leading-tight"
+            >{cards.bottomRight.title}</span
+          >
+          {
+            cards.bottomRight.subtitle && (
+              <span class="text-xs opacity-70 tracking-wide">
+                {cards.bottomRight.subtitle}
+              </span>
+            )
+          }
+        </article>
+      </div>
     </div>
   </div>
-
   <style>
     @media (max-width: 768px) {
       .grid[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
       }
-      header {
-        padding-left: 0 !important;
-      }
     }
   </style>
-
 </section>
