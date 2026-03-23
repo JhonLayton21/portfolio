@@ -18,12 +18,12 @@ interface Props {
   };
   activeNavIndex?: number;
 }
-const { heading, subtitles = [], cards, activeNavIndex = 0 } = Astro.props;
+const { heading, subtitles = [], cards, activeNavIndex = 2 } = Astro.props;
 
 const navItems = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Biografía", href: "#biografia" },
-  { label: "Más Proyectos", href: "#proyectos" },
+  { label: 'Más Proyectos', href: '#proyectos' },
+  { label: 'Biografía', href: '#biografia' },
+  { label: 'Inicio', href: '#inicio' },
 ];
 
 const subtitleIcons: Record<string, string> = {
