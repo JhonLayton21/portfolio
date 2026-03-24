@@ -56,22 +56,124 @@ function getIcon(label: string): string {
       class="flex-1 min-h-0 grid gap-4"
       style="grid-template-columns: 38% 1fr; grid-template-rows: 1fr;"
     >
-      <!-- Left card (tall) -->
-      <article
-        class="h-full rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
-        style="background-color: var(--color-navy); color: #fff;"
-      >
-        <span class="text-4xl font-bold tracking-tight leading-tight"
-          >{cards.left.title}</span
+      <!-- Left card (tall) — flip container -->
+      <div id="bio-flip-container" class="h-full" style="perspective: 1200px;">
+        <div
+          id="bio-flip-inner"
+          class="relative w-full h-full"
+          style="
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+          "
         >
-        {
-          cards.left.subtitle && (
-            <span class="text-md opacity-70 tracking-wide">
-              {cards.left.subtitle}
+          <!-- FRONT -->
+          <article
+            class="absolute inset-0 rounded-2xl p-6 flex flex-col gap-2 cursor-default overflow-hidden"
+            style="
+              background-color: var(--color-navy);
+              color: #fff;
+              backface-visibility: hidden;
+              -webkit-backface-visibility: hidden;
+            "
+          >
+            <span class="text-4xl font-bold tracking-tight leading-tight">
+              {cards.left.title}
             </span>
-          )
-        }
-      </article>
+            {cards.left.subtitle && (
+              <span class="text-md opacity-70 tracking-wide">
+                {cards.left.subtitle}
+              </span>
+            )}
+          </article>
+
+          <!-- BACK (Biografía) -->
+          <article
+            class="absolute inset-0 rounded-2xl p-6 flex flex-col gap-3 cursor-default overflow-y-auto"
+            style="
+              background-color: var(--color-navy);
+              color: #fff;
+              backface-visibility: hidden;
+              -webkit-backface-visibility: hidden;
+              transform: rotateY(180deg);
+              scrollbar-width: none;
+            "
+          >
+            <!-- Header -->
+            <div class="flex-none border-b border-white/10 pb-3">
+              <p class="text-[10px] uppercase tracking-[0.25em] opacity-40 mb-1">Desarrollador Fullstack Jr.</p>
+              <h2 class="text-2xl font-black tracking-tight leading-none">Jhon Brandon<br/>Layton Rodríguez</h2>
+              <p class="text-[11px] opacity-50 mt-1">Bogotá, Colombia · laytonjhon0@gmail.com</p>
+            </div>
+
+            <!-- Perfil -->
+            <div class="flex-none">
+              <p class="text-[11px] leading-relaxed opacity-70">
+                Apasionado por crear soluciones eficientes, interfaces intuitivas y sistemas robustos.
+                Disfruta proyectos colaborativos y resolver problemas complejos a través del código.
+              </p>
+            </div>
+
+            <!-- Experiencia -->
+            <div class="flex-none">
+              <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-2">Experiencia</p>
+              <div class="flex flex-col gap-2">
+                {[
+                  { company: 'Rodriguez SAS', period: 'Feb 2024 – Feb 2025', tech: 'Astro · React · Tailwind · Vercel' },
+                  { company: 'La Nana Lili Pets', period: 'Jul 2024 – Dic 2024', tech: 'Astro · Tailwind · Vercel' },
+                  { company: 'Microlan IT SAS', period: 'Oct 2023 – Ene 2024', tech: 'HTML · CSS · JavaScript' },
+                ].map(exp => (
+                  <div class="flex justify-between items-start gap-2">
+                    <div class="flex-1 min-w-0">
+                      <p class="text-[11px] font-bold leading-tight truncate">{exp.company}</p>
+                      <p class="text-[10px] opacity-50 leading-tight">{exp.tech}</p>
+                    </div>
+                    <p class="text-[9px] opacity-40 whitespace-nowrap shrink-0 pt-0.5">{exp.period}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Educación -->
+            <div class="flex-none">
+              <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-2">Educación</p>
+              <div class="flex flex-col gap-1.5">
+                <div>
+                  <p class="text-[11px] font-bold leading-tight">Ingeniería de Software</p>
+                  <p class="text-[10px] opacity-50">Politécnico Grancolombiano · En curso</p>
+                </div>
+                <div>
+                  <p class="text-[11px] font-bold leading-tight">Tecnología en Desarrollo de Software</p>
+                  <p class="text-[10px] opacity-50">Uniagustiniana · 2024</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stack -->
+            <div class="flex-none">
+              <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-2">Stack</p>
+              <div class="flex flex-wrap gap-1.5">
+                {['JS/TS', 'React', 'Next.js', 'Astro', 'Node', 'PHP', 'Python', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS', 'Tailwind'].map(tag => (
+                  <span class="text-[10px] border border-white/20 rounded-full px-2 py-0.5 opacity-60 leading-tight">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-auto pt-3 border-t border-white/10 flex justify-between items-end">
+              <div>
+                <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-1">Idiomas</p>
+                <p class="text-[10px] opacity-60">Español nativo · Inglés B1</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-1">Certs</p>
+                <p class="text-[10px] opacity-60">AWS · IBM · Anthropic · Cisco</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
 
       <!-- Right side -->
       <div class="flex flex-col gap-4 min-h-0">
@@ -83,18 +185,16 @@ function getIcon(label: string): string {
           </h1>
 
           <div class="flex justify-between">
-            {
-              subtitles.map((s) => (
-                <a
-                  href={s.url}
-                  target="_blank"
-                  class="flex items-center gap-1.5 text-lg text-neutral-500 tracking-wide hover:text-black transition-colors duration-200"
-                >
-                  <Icon name={getIcon(s.label)} size={18} />
-                  {s.label}
-                </a>
-              ))
-            }
+            {subtitles.map((s) => (
+              <a
+                href={s.url}
+                target="_blank"
+                class="flex items-center gap-1.5 text-lg text-neutral-500 tracking-wide hover:text-black transition-colors duration-200"
+              >
+                <Icon name={getIcon(s.label)} size={18} />
+                {s.label}
+              </a>
+            ))}
           </div>
         </header>
 
@@ -107,61 +207,37 @@ function getIcon(label: string): string {
             class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
             style="background-color: var(--color-sky); color: black;"
           >
-            <span class="text-4xl font-bold tracking-tight leading-tight"
-              >{cards.topLeft.title}</span
-            >
-            {
-              cards.topLeft.subtitle && (
-                <span class="text-xs opacity-70 tracking-wide">
-                  {cards.topLeft.subtitle}
-                </span>
-              )
-            }
+            <span class="text-4xl font-bold tracking-tight leading-tight">{cards.topLeft.title}</span>
+            {cards.topLeft.subtitle && (
+              <span class="text-xs opacity-70 tracking-wide">{cards.topLeft.subtitle}</span>
+            )}
           </article>
           <article
             class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
             style="background-color: var(--color-yellow); color: black;"
           >
-            <span class="text-4xl font-bold tracking-tight leading-tight"
-              >{cards.topRight.title}</span
-            >
-            {
-              cards.topRight.subtitle && (
-                <span class="text-xs opacity-70 tracking-wide">
-                  {cards.topRight.subtitle}
-                </span>
-              )
-            }
+            <span class="text-4xl font-bold tracking-tight leading-tight">{cards.topRight.title}</span>
+            {cards.topRight.subtitle && (
+              <span class="text-xs opacity-70 tracking-wide">{cards.topRight.subtitle}</span>
+            )}
           </article>
           <article
             class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
             style="background-color: var(--color-blue); color: #fff;"
           >
-            <span class="text-4xl font-bold tracking-tight leading-tight"
-              >{cards.bottomLeft.title}</span
-            >
-            {
-              cards.bottomLeft.subtitle && (
-                <span class="text-xs opacity-70 tracking-wide">
-                  {cards.bottomLeft.subtitle}
-                </span>
-              )
-            }
+            <span class="text-4xl font-bold tracking-tight leading-tight">{cards.bottomLeft.title}</span>
+            {cards.bottomLeft.subtitle && (
+              <span class="text-xs opacity-70 tracking-wide">{cards.bottomLeft.subtitle}</span>
+            )}
           </article>
           <article
             class="rounded-2xl p-6 flex flex-col gap-2 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-default overflow-hidden"
             style="background-color: var(--color-orange); color: #fff;"
           >
-            <span class="text-4xl font-bold tracking-tight leading-tight"
-              >{cards.bottomRight.title}</span
-            >
-            {
-              cards.bottomRight.subtitle && (
-                <span class="text-xs opacity-70 tracking-wide">
-                  {cards.bottomRight.subtitle}
-                </span>
-              )
-            }
+            <span class="text-4xl font-bold tracking-tight leading-tight">{cards.bottomRight.title}</span>
+            {cards.bottomRight.subtitle && (
+              <span class="text-xs opacity-70 tracking-wide">{cards.bottomRight.subtitle}</span>
+            )}
           </article>
         </div>
       </div>
@@ -170,12 +246,22 @@ function getIcon(label: string): string {
 
   <style>
     @media (max-width: 768px) {
-      aside {
-        display: none;
-      }
+      aside { display: none; }
       .grid[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
       }
     }
   </style>
 </section>
+
+<script>
+  const flipInner = document.getElementById('bio-flip-inner');
+  let isFlipped = false;
+
+  document.addEventListener('nav:biografia', () => {
+    isFlipped = !isFlipped;
+    if (flipInner) {
+      flipInner.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+    }
+  });
+</script>
