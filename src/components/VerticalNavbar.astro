@@ -5,7 +5,6 @@ interface Props {
 }
 const { items, activeIndex = 0 } = Astro.props;
 ---
-
 <nav class="flex items-center justify-center h-full w-full" aria-label="Navegación vertical">
   <ul class="flex flex-col items-start gap-8 list-none m-0 p-0">
     {items.map((item, i) => (
@@ -13,6 +12,7 @@ const { items, activeIndex = 0 } = Astro.props;
         <a
           href={item.href}
           data-index={i}
+          data-label={item.label}
           class={`
             nav-link flex items-center gap-2 no-underline font-mono text-base font-medium
             tracking-widest uppercase py-1 transition-colors duration-200
@@ -32,9 +32,13 @@ const { items, activeIndex = 0 } = Astro.props;
 
 <script>
   const links = document.querySelectorAll('.nav-link');
+
   links.forEach((link) => {
-    link.addEventListener('click', () => {
-      document.querySelectorAll('[data-active="true"]').forEach((li) => li.setAttribute('data-active', 'false'));
+    link.addEventListener('click', (e) => {
+      // Actualiza estilos activos
+      document.querySelectorAll('[data-active="true"]').forEach((li) =>
+        li.setAttribute('data-active', 'false')
+      );
       document.querySelectorAll('.active-dot').forEach((dot) => dot.remove());
 
       const parentLi = link.closest('li');
@@ -42,11 +46,17 @@ const { items, activeIndex = 0 } = Astro.props;
         parentLi.setAttribute('data-active', 'true');
         link.classList.remove('text-gray-400', 'hover:text-neutral-900');
         link.classList.add('text-neutral-900', 'font-bold');
-
         const dot = document.createElement('span');
         dot.className = 'active-dot inline-block w-2 h-2 rounded-full bg-neutral-900 shrink-0';
         dot.setAttribute('aria-hidden', 'true');
         link.prepend(dot);
+      }
+
+      // Si es "Biografía", dispara el flip
+      const label = (link as HTMLElement).dataset.label ?? '';
+      if (label.toLowerCase().includes('biograf')) {
+        e.preventDefault();
+        document.dispatchEvent(new CustomEvent('nav:biografia'));
       }
     });
   });
