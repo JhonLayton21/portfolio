@@ -88,7 +88,7 @@ function getIcon(label: string): string {
 
           <!-- BACK (Biografía) -->
           <article
-            class="absolute inset-0 rounded-2xl p-6 flex flex-col gap-3 cursor-default overflow-y-auto"
+            class="absolute inset-0 rounded-2xl p-6 flex flex-col gap-4 cursor-default overflow-y-auto"
             style="
               background-color: var(--color-navy);
               color: #fff;
@@ -100,14 +100,14 @@ function getIcon(label: string): string {
           >
             <!-- Header -->
             <div class="flex-none border-b border-white/10 pb-3">
-              <p class="text-[10px] uppercase tracking-[0.25em] opacity-40 mb-1">Desarrollador Fullstack Jr.</p>
-              <h2 class="text-2xl font-black tracking-tight leading-none">Jhon Brandon<br/>Layton Rodríguez</h2>
-              <p class="text-[11px] opacity-50 mt-1">Bogotá, Colombia · laytonjhon0@gmail.com</p>
+              <p class="text-[12px] uppercase tracking-[0.25em] opacity-40 mb-1">Desarrollador Fullstack Jr.</p>
+              <h2 class="text-3xl font-black tracking-tight leading-none">Jhon Brandon<br/>Layton Rodríguez</h2>
+              <p class="text-[13px] opacity-50 mt-2">Bogotá, Colombia · laytonjhon0@gmail.com</p>
             </div>
 
             <!-- Perfil -->
             <div class="flex-none">
-              <p class="text-[11px] leading-relaxed opacity-70">
+              <p class="text-[13px] leading-relaxed opacity-70">
                 Apasionado por crear soluciones eficientes, interfaces intuitivas y sistemas robustos.
                 Disfruta proyectos colaborativos y resolver problemas complejos a través del código.
               </p>
@@ -115,19 +115,19 @@ function getIcon(label: string): string {
 
             <!-- Experiencia -->
             <div class="flex-none">
-              <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-2">Experiencia</p>
-              <div class="flex flex-col gap-2">
+              <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-2">Experiencia</p>
+              <div class="flex flex-col gap-3">
                 {[
                   { company: 'Rodriguez SAS', period: 'Feb 2024 – Feb 2025', tech: 'Astro · React · Tailwind · Vercel' },
                   { company: 'La Nana Lili Pets', period: 'Jul 2024 – Dic 2024', tech: 'Astro · Tailwind · Vercel' },
                   { company: 'Microlan IT SAS', period: 'Oct 2023 – Ene 2024', tech: 'HTML · CSS · JavaScript' },
                 ].map(exp => (
-                  <div class="flex justify-between items-start gap-2">
+                  <div class="flex justify-between items-start gap-3">
                     <div class="flex-1 min-w-0">
-                      <p class="text-[11px] font-bold leading-tight truncate">{exp.company}</p>
-                      <p class="text-[10px] opacity-50 leading-tight">{exp.tech}</p>
+                      <p class="text-[13px] font-bold leading-tight truncate">{exp.company}</p>
+                      <p class="text-[12px] opacity-50 leading-tight">{exp.tech}</p>
                     </div>
-                    <p class="text-[9px] opacity-40 whitespace-nowrap shrink-0 pt-0.5">{exp.period}</p>
+                    <p class="text-[11px] opacity-40 whitespace-nowrap shrink-0 pt-0.5">{exp.period}</p>
                   </div>
                 ))}
               </div>
@@ -135,25 +135,25 @@ function getIcon(label: string): string {
 
             <!-- Educación -->
             <div class="flex-none">
-              <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-2">Educación</p>
-              <div class="flex flex-col gap-1.5">
+              <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-2">Educación</p>
+              <div class="flex flex-col gap-2">
                 <div>
-                  <p class="text-[11px] font-bold leading-tight">Ingeniería de Software</p>
-                  <p class="text-[10px] opacity-50">Politécnico Grancolombiano · En curso</p>
+                  <p class="text-[13px] font-bold leading-tight">Ingeniería de Software</p>
+                  <p class="text-[12px] opacity-50">Politécnico Grancolombiano · En curso</p>
                 </div>
                 <div>
-                  <p class="text-[11px] font-bold leading-tight">Tecnología en Desarrollo de Software</p>
-                  <p class="text-[10px] opacity-50">Uniagustiniana · 2024</p>
+                  <p class="text-[13px] font-bold leading-tight">Tecnología en Desarrollo de Software</p>
+                  <p class="text-[12px] opacity-50">Uniagustiniana · 2024</p>
                 </div>
               </div>
             </div>
 
             <!-- Stack -->
             <div class="flex-none">
-              <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-2">Stack</p>
-              <div class="flex flex-wrap gap-1.5">
+              <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-2">Stack</p>
+              <div class="flex flex-wrap gap-2">
                 {['JS/TS', 'React', 'Next.js', 'Astro', 'Node', 'PHP', 'Python', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS', 'Tailwind'].map(tag => (
-                  <span class="text-[10px] border border-white/20 rounded-full px-2 py-0.5 opacity-60 leading-tight">
+                  <span class="text-[11px] border border-white/20 rounded-full px-3 py-1 opacity-60 leading-tight">
                     {tag}
                   </span>
                 ))}
@@ -163,12 +163,12 @@ function getIcon(label: string): string {
             <!-- Footer -->
             <div class="mt-auto pt-3 border-t border-white/10 flex justify-between items-end">
               <div>
-                <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-1">Idiomas</p>
-                <p class="text-[10px] opacity-60">Español nativo · Inglés B1</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-1">Idiomas</p>
+                <p class="text-[12px] opacity-60">Español nativo · Inglés B1</p>
               </div>
               <div class="text-right">
-                <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mb-1">Certs</p>
-                <p class="text-[10px] opacity-60">AWS · IBM · Anthropic · Cisco</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-1">Certs</p>
+                <p class="text-[12px] opacity-60">AWS · IBM · Anthropic · Cisco</p>
               </div>
             </div>
           </article>
