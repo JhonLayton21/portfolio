@@ -68,22 +68,56 @@ function getIcon(label: string): string {
         >
           <!-- FRONT -->
           <article
-            class="absolute inset-0 rounded-2xl p-6 flex flex-col gap-2 cursor-default overflow-hidden"
+            class="absolute inset-0 rounded-2xl p-6 flex flex-col cursor-default overflow-hidden"
             style="
+              position: absolute;
+              inset: 0;
               background-color: var(--color-navy);
               color: #fff;
               backface-visibility: hidden;
               -webkit-backface-visibility: hidden;
+              transform: rotateY(0deg);
+              isolation: isolate;
             "
           >
-            <span class="text-4xl font-bold tracking-tight leading-tight">
-              {cards.left.title}
-            </span>
-            {cards.left.subtitle && (
-              <span class="text-md opacity-70 tracking-wide">
-                {cards.left.subtitle}
-              </span>
-            )}
+            <!-- White circle — top-right area, contained inside this article -->
+            <div
+              style="
+                position: absolute;
+                top: 25%;
+                right: 2%;
+                width: 62%;
+                aspect-ratio: 1;
+                background: #ffffff;
+                border-radius: 50%;
+                pointer-events: none;
+              "
+            ></div>
+
+            <!-- Title + subtitle + button pushed to bottom-left -->
+            <div class="mt-auto flex flex-col gap-3 relative z-10">
+              <div class="flex flex-col gap-1">
+                <span class="text-4xl font-bold tracking-tight leading-tight">
+                  {cards.left.title}
+                </span>
+                {cards.left.subtitle && (
+                  <span class="text-sm opacity-70 tracking-wide">
+                    {cards.left.subtitle}
+                  </span>
+                )}
+              </div>
+
+              <!-- Download CV button -->
+              <a
+                href="#"
+                class="flex items-center gap-2 self-start rounded-full px-5 py-2 text-sm font-semibold tracking-wide transition-opacity duration-200 hover:opacity-80"
+                style="background-color: #ffffff; color: var(--color-navy);"
+                download
+              >
+                <Icon name="lucide:download" size={15} />
+                Download CV
+              </a>
+            </div>
           </article>
 
           <!-- BACK (Biografía) -->
