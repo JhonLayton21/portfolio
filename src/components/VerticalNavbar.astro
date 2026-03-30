@@ -5,54 +5,69 @@ interface Props {
 }
 const { items, activeIndex = 0 } = Astro.props;
 ---
-<nav class="flex items-center justify-center h-full w-full" aria-label="Navegación vertical">
+
+<nav
+  class="flex items-center justify-center h-full w-full"
+  aria-label="Navegación vertical"
+>
   <ul class="flex flex-col items-start gap-8 list-none m-0 p-0">
-    {items.map((item, i) => (
-      <li class="flex items-center nav-item" data-active={i === activeIndex}>
-        <a
-          href={item.href}
-          data-index={i}
-          data-label={item.label}
-          class={`
+    {
+      items.map((item, i) => (
+        <li class="flex items-center nav-item" data-active={i === activeIndex}>
+          <a
+            href={item.href}
+            data-index={i}
+            data-label={item.label}
+            class={`
             nav-link flex items-center gap-2 no-underline font-mono text-base font-medium
             tracking-widest uppercase py-1 transition-colors duration-200
             [writing-mode:vertical-rl] transform-[rotate(180deg)] whitespace-nowrap
-            ${i === activeIndex ? 'text-neutral-900 font-bold' : 'text-gray-400 hover:text-neutral-900'}
+            ${i === activeIndex ? "text-neutral-900 font-bold" : "text-gray-400 hover:text-neutral-900"}
           `}
-        >
-          {i === activeIndex && (
-            <span class="active-dot inline-block w-2 h-2 rounded-full bg-neutral-900 shrink-0" aria-hidden="true" />
-          )}
-          <span class="whitespace-nowrap">{item.label}</span>
-        </a>
-      </li>
-    ))}
+          >
+            {i === activeIndex && (
+              <span
+                class="active-dot inline-block w-2 h-2 rounded-full bg-neutral-900 shrink-0"
+                aria-hidden="true"
+              />
+            )}
+            <span class="whitespace-nowrap">{item.label}</span>
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
 <script>
-  const links = document.querySelectorAll('.nav-link');
+  const links = document.querySelectorAll(".nav-link");
   links.forEach((link) => {
-    link.addEventListener('click', (e) => {
+    link.addEventListener("click", (e) => {
       // Actualiza estilos activos
-      document.querySelectorAll('[data-active="true"]').forEach((li) =>
-        li.setAttribute('data-active', 'false')
-      );
-      document.querySelectorAll('.active-dot').forEach((dot) => dot.remove());
-      const parentLi = link.closest('li');
+      document
+        .querySelectorAll('[data-active="true"]')
+        .forEach((li) => li.setAttribute("data-active", "false"));
+      document.querySelectorAll(".active-dot").forEach((dot) => dot.remove());
+      const parentLi = link.closest("li");
       if (parentLi) {
-        parentLi.setAttribute('data-active', 'true');
-        link.classList.remove('text-gray-400', 'hover:text-neutral-900');
-        link.classList.add('text-neutral-900', 'font-bold');
-        const dot = document.createElement('span');
-        dot.className = 'active-dot inline-block w-2 h-2 rounded-full bg-neutral-900 shrink-0';
-        dot.setAttribute('aria-hidden', 'true');
+        parentLi.setAttribute("data-active", "true");
+        link.classList.remove("text-gray-400", "hover:text-neutral-900");
+        link.classList.add("text-neutral-900", "font-bold");
+        const dot = document.createElement("span");
+        dot.className =
+          "active-dot inline-block w-2 h-2 rounded-full bg-neutral-900 shrink-0";
+        dot.setAttribute("aria-hidden", "true");
         link.prepend(dot);
       }
       // Si el href apunta a #biografia, dispara el flip
-      const href = (link as HTMLAnchorElement).getAttribute('href') ?? '';
-      if (href === '#biografia') {
+      const href = (link as HTMLAnchorElement).getAttribute("href") ?? "";
+      if (href === "#biografia") {
         e.preventDefault();
-        document.dispatchEvent(new CustomEvent('nav:biografia'));
+        document.dispatchEvent(new CustomEvent("nav:biografia"));
+      }
+
+      if (href === "#inicio") {
+        e.preventDefault();
+        document.dispatchEvent(new CustomEvent("nav:home"));
       }
     });
   });

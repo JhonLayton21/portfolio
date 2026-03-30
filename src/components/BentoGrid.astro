@@ -291,10 +291,17 @@ function getIcon(label: string): string {
   const flipInner = document.getElementById('bio-flip-inner');
   let isFlipped = false;
 
-  document.addEventListener('nav:biografia', () => {
-    isFlipped = !isFlipped;
-    if (flipInner) {
-      flipInner.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
-    }
-  });
+  if (!flipInner) {
+    console.error('bio-flip-inner element not found');
+  } else {
+    // Biography → siempre voltea al back
+    document.addEventListener('nav:biografia', () => {
+      flipInner.style.transform = 'rotateY(180deg)';
+    });
+
+    // Home → siempre regresa al front
+    document.addEventListener('nav:home', () => {
+      flipInner.style.transform = 'rotateY(0deg)';
+    });
+  }
 </script>
