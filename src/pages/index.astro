@@ -2,21 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import BentoGrid from "../components/BentoGrid.astro";
 ---
-
 <Layout>
   <BentoGrid
     heading="PORTFOLIO"
     subtitles={[
       { label: "GitHub", url: "https://github.com/JhonLayton21" },
       { label: "LinkedIn", url: "https://linkedin.com/in/jhon-layton" },
-      { label: "Teléfono", url: "tel:+573337369902" },
+      { label: "Phone", url: "tel:+573337369902" },
     ]}
     cards={{
       left: { title: "Jhon Brandon Layton Rodriguez", subtitle: "Fullstack Developer" },
-      topLeft: { title: "cv creator", subtitle: "Crea hojas de vida profesionales en minutos con una experiencia intuitiva y personalizable" },
-      topRight: { title: "Patternation", subtitle:"Explora y genera patrones visuales dinámicos con lógica geométrica y diseño creativo" },
-      bottomLeft: { title: "Background Clash", subtitle: "Crea combinaciones de fondos impactantes que elevan cualquier diseño web o UI" },
-      bottomRight: { title: "Proofimaster", subtitle:"Aplicación fullstack para la gestión de inventario, clientes y proveedores con lógica de negocio robusta" },
+      topLeft: { title: "cv creator", subtitle: "Create professional resumes in minutes with an intuitive and customizable experience" },
+      topRight: { title: "Patternation", subtitle: "Explore and generate dynamic visual patterns with geometric logic and creative design" },
+      bottomLeft: { title: "Background Clash", subtitle: "Create impactful background combinations that elevate any web or UI design" },
+      bottomRight: { title: "Proofimaster", subtitle: "Fullstack application for inventory, customer and supplier management with robust business logic" },
     }}
   />
 </Layout>
