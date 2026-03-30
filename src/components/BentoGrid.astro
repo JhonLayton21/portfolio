@@ -21,9 +21,9 @@ interface Props {
 const { heading, subtitles = [], cards, activeNavIndex = 2 } = Astro.props;
 
 const navItems = [
-  { label: 'Más Proyectos', href: '#proyectos' },
-  { label: 'Biografía', href: '#biografia' },
-  { label: 'Inicio', href: '#inicio' },
+  { label: 'More Projects', href: '#proyectos' },
+  { label: 'Biography', href: '#biografia' },
+  { label: 'Home', href: '#inicio' },
 ];
 
 const subtitleIcons: Record<string, string> = {
@@ -46,7 +46,7 @@ function getIcon(label: string): string {
     <!-- Vertical Navbar -->
     <aside
       class="flex-none w-16 flex items-center justify-center"
-      aria-label="Barra de navegación lateral"
+      aria-label="Side navigation bar"
     >
       <VerticalNavbar items={navItems} activeIndex={activeNavIndex} />
     </aside>
@@ -120,7 +120,7 @@ function getIcon(label: string): string {
             </div>
           </article>
 
-          <!-- BACK (Biografía) -->
+          <!-- BACK (Biography) -->
           <article
             class="absolute inset-0 rounded-2xl p-6 flex flex-col gap-4 cursor-default overflow-y-auto"
             style="
@@ -134,27 +134,27 @@ function getIcon(label: string): string {
           >
             <!-- Header -->
             <div class="flex-none border-b border-white/10 pb-3">
-              <p class="text-[12px] uppercase tracking-[0.25em] opacity-40 mb-1">Desarrollador Fullstack Jr.</p>
+              <p class="text-[12px] uppercase tracking-[0.25em] opacity-40 mb-1">Jr. Fullstack Developer</p>
               <h2 class="text-3xl font-black tracking-tight leading-none">Jhon Brandon<br/>Layton Rodríguez</h2>
               <p class="text-[13px] opacity-50 mt-2">Bogotá, Colombia · laytonjhon0@gmail.com</p>
             </div>
 
-            <!-- Perfil -->
+            <!-- Profile -->
             <div class="flex-none">
               <p class="text-[13px] leading-relaxed opacity-70">
-                Apasionado por crear soluciones eficientes, interfaces intuitivas y sistemas robustos.
-                Disfruta proyectos colaborativos y resolver problemas complejos a través del código.
+                Passionate about building efficient solutions, intuitive interfaces, and robust systems.
+                Enjoys collaborative projects and solving complex problems through code.
               </p>
             </div>
 
-            <!-- Experiencia -->
+            <!-- Experience -->
             <div class="flex-none">
-              <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-2">Experiencia</p>
+              <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-2">Experience</p>
               <div class="flex flex-col gap-3">
                 {[
                   { company: 'Rodriguez SAS', period: 'Feb 2024 – Feb 2025', tech: 'Astro · React · Tailwind · Vercel' },
-                  { company: 'La Nana Lili Pets', period: 'Jul 2024 – Dic 2024', tech: 'Astro · Tailwind · Vercel' },
-                  { company: 'Microlan IT SAS', period: 'Oct 2023 – Ene 2024', tech: 'HTML · CSS · JavaScript' },
+                  { company: 'La Nana Lili Pets', period: 'Jul 2024 – Dec 2024', tech: 'Astro · Tailwind · Vercel' },
+                  { company: 'Microlan IT SAS', period: 'Oct 2023 – Jan 2024', tech: 'HTML · CSS · JavaScript' },
                 ].map(exp => (
                   <div class="flex justify-between items-start gap-3">
                     <div class="flex-1 min-w-0">
@@ -167,16 +167,16 @@ function getIcon(label: string): string {
               </div>
             </div>
 
-            <!-- Educación -->
+            <!-- Education -->
             <div class="flex-none">
-              <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-2">Educación</p>
+              <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-2">Education</p>
               <div class="flex flex-col gap-2">
                 <div>
-                  <p class="text-[13px] font-bold leading-tight">Ingeniería de Software</p>
-                  <p class="text-[12px] opacity-50">Politécnico Grancolombiano · En curso</p>
+                  <p class="text-[13px] font-bold leading-tight">Software Engineering</p>
+                  <p class="text-[12px] opacity-50">Politécnico Grancolombiano · In progress</p>
                 </div>
                 <div>
-                  <p class="text-[13px] font-bold leading-tight">Tecnología en Desarrollo de Software</p>
+                  <p class="text-[13px] font-bold leading-tight">Software Development Technology</p>
                   <p class="text-[12px] opacity-50">Uniagustiniana · 2024</p>
                 </div>
               </div>
@@ -197,8 +197,8 @@ function getIcon(label: string): string {
             <!-- Footer -->
             <div class="mt-auto pt-3 border-t border-white/10 flex justify-between items-end">
               <div>
-                <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-1">Idiomas</p>
-                <p class="text-[12px] opacity-60">Español nativo · Inglés B1</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-1">Languages</p>
+                <p class="text-[12px] opacity-60">Spanish native · English B1</p>
               </div>
               <div class="text-right">
                 <p class="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-1">Certs</p>
