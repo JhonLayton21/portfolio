@@ -29,10 +29,8 @@ const { items, activeIndex = 0 } = Astro.props;
     ))}
   </ul>
 </nav>
-
 <script>
   const links = document.querySelectorAll('.nav-link');
-
   links.forEach((link) => {
     link.addEventListener('click', (e) => {
       // Actualiza estilos activos
@@ -40,7 +38,6 @@ const { items, activeIndex = 0 } = Astro.props;
         li.setAttribute('data-active', 'false')
       );
       document.querySelectorAll('.active-dot').forEach((dot) => dot.remove());
-
       const parentLi = link.closest('li');
       if (parentLi) {
         parentLi.setAttribute('data-active', 'true');
@@ -51,10 +48,9 @@ const { items, activeIndex = 0 } = Astro.props;
         dot.setAttribute('aria-hidden', 'true');
         link.prepend(dot);
       }
-
-      // Si es "Biografía", dispara el flip
-      const label = (link as HTMLElement).dataset.label ?? '';
-      if (label.toLowerCase().includes('biograf')) {
+      // Si el href apunta a #biografia, dispara el flip
+      const href = (link as HTMLAnchorElement).getAttribute('href') ?? '';
+      if (href === '#biografia') {
         e.preventDefault();
         document.dispatchEvent(new CustomEvent('nav:biografia'));
       }
